@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        YearlyReport yearlyReport = null;
-        MonthlyReport monthlyReport;
-
         Scanner scanner = new Scanner(System.in);
+        YearlyReport yearlyReport = null;
+        MonthlyReport monthlyReport = null;
+
         String username = hello(scanner);
         while (true) {
             menu(username);
@@ -20,12 +20,12 @@ public class Main {
                 System.out.println("За какой год хотите считать отчёт?");
                 int year = scanner.nextInt();
                 yearlyReport = new YearlyReport(year,"resources/y." + year + ".csv");
+
             } else if (command == 3) {
             } else if (command == 4) {
+                monthlyReport.annualReport();
             } else if (command == 5) {
-                System.out.println("За какой год вы хотите получить информацию?");
-                int year = scanner.nextInt();
-                yearlyReport.printYearlyReports(year);
+                yearlyReport.annualReport();
             } else if (command == 0) {
                 System.out.println("Хорошего вечера, " + username + ".");
                 break;
@@ -50,5 +50,6 @@ public class Main {
             System.out.println("Очень приятно!");
             return name;
         }
+
     }
 

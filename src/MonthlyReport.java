@@ -19,4 +19,7 @@ public class MonthlyReport {
             rows.add(record);
         }
     }
+    public void annualReport() {
+
+    }
 }
